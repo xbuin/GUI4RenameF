@@ -1,3 +1,4 @@
+# test for main functions
 
 import os
 import sys
