@@ -128,7 +128,7 @@ class MvFileGUI(object):
 
     # construct the function group with radiobutton
     def construct_radiobutton(self):
-        self.lfm = LabelFrame(height=20, width=50, text='Select Function')
+        self.lfm = LabelFrame(height=20, width=50, text='操作选项')
         self.lfm.grid(row=1, column=1)
 
         # Pre-set the default function to listfile
@@ -137,41 +137,41 @@ class MvFileGUI(object):
 
         # Construct the first function line
         self.listRB1 = Radiobutton(
-            self.lfm, variable=self.v_func, text='JustListFile', value='v_listfile')
+            self.lfm, variable=self.v_func, text='仅列出文件', value='v_listfile')
         self.listRB1.grid(row=1, column=0)
         self.listRB2 = Radiobutton(
-            self.lfm, variable=self.v_func, text='RemoveDash', value='v_rmvdash')
+            self.lfm, variable=self.v_func, text='去除破折号', value='v_rmvdash')
         self.listRB2.grid(row=1, column=1)
         self.listRB3 = Radiobutton(
-            self.lfm, variable=self.v_func, text='AddRandKey', value='v_randkey')
+            self.lfm, variable=self.v_func, text='添加随机值', value='v_randkey')
         self.listRB3.grid(row=1, column=2, padx=7)
 
         # construct the name string replacement line
         self.replaceRB4 = Radiobutton(
-            self.lfm, variable=self.v_func, text='Replace', value='v_replacestr')
+            self.lfm, variable=self.v_func, text='替换旧字符', value='v_replacestr')
         self.replaceRB4.grid(row=2, column=0, sticky=W)
         self.repRawEntry = Entry(self.lfm, width=12)
         self.repRawEntry.grid(row=2, column=1, sticky=W)
-        self.withstr = Label(self.lfm, text="with")
+        self.withstr = Label(self.lfm, text="新值")
         self.withstr.grid(row=2, column=2, sticky=W)
         self.repNewEntry = Entry(self.lfm, width=10)
         self.repNewEntry.grid(row=2, column=2, sticky=E, padx=6)
 
         # construct the prefix and suffix line
         self.prefixRB5 = Radiobutton(
-            self.lfm, variable=self.v_func, text='Prefix', value='v_addprefix')
+            self.lfm, variable=self.v_func, text='添加前缀', value='v_addprefix')
         self.prefixRB5.grid(row=3, column=0, sticky=W)
         self.suffixRB6 = Radiobutton(
-            self.lfm, variable=self.v_func, text='Suffix', value='v_addsuffix')
+            self.lfm, variable=self.v_func, text='添加后缀', value='v_addsuffix')
         self.suffixRB6.grid(row=3, column=1, sticky=W)
-        self.withfix = Label(self.lfm, text="with")
+        self.withfix = Label(self.lfm, text="字符")
         self.withfix.grid(row=3, column=2, sticky=W)
         self.fixstrEntry = Entry(self.lfm, width=10)
         self.fixstrEntry.grid(row=3, column=2, sticky=E, padx=6)
 
     # Construct the output box
     def construct_outbox(self):
-        self.outfm = LabelFrame(text=' Output ')
+        self.outfm = LabelFrame(text=' 操作日志 ')
         self.outfm.grid(row=2, column=0, columnspan=3, pady=6)
 
         self.outText = Text(self.outfm)
@@ -188,25 +188,25 @@ class MvFileGUI(object):
         self.construct_rootfrm()
 
         # widget for select directory
-        self.dirLable = Label(self.root, text='TargetDir: ')
+        self.dirLable = Label(self.root, text='操作目录: ')
         self.dirLable.grid(row=0, column=0, pady=10, padx=5)
 
         self.dirEntry = Entry(self.root, width=55)
         self.dirEntry.grid(row=0, column=1, padx=10, pady=10)
 
-        self.dirButton = Button(self.root, text='BROWSE', width=10,
+        self.dirButton = Button(self.root, text='浏览...', width=10,
                                 height=1, relief='groove', command=self.select_dirpath)
         self.dirButton.grid(row=0, column=2, padx=10, pady=10)
 
         # version information
-        self.verionLabel = Label(self.root, text="    Version 0.1\n")
+        self.verionLabel = Label(self.root, text="    Version 0.1\n    2018.05.17")
         self.verionLabel.grid(row=1, column=0, pady=0)
 
         # function group
         self.construct_radiobutton()
 
         # work button
-        self.actButton = Button(self.root, text='DO IT', width=10,
+        self.actButton = Button(self.root, text='执行', width=10,
                                 relief='groove', bg='orange', command=self.button_act)
         self.actButton.grid(row=1, column=2, pady=10)
 
