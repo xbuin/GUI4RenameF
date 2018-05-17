@@ -1,9 +1,8 @@
 '''
 @author: xbuin
 '''
-from rename_clas import MvFileGUI
+from rename_claz import MvFileGUI
 
-# master branch
 if __name__ == '__main__':
-    myrn_gui = MvFileGUI("RenameFileName", 595, 486)
-    myrn_gui.launch_gui()
+    myrn_gui = MvFileGUI("RenameGUI", 595, 535)
+myrn_gui.launch_gui()
