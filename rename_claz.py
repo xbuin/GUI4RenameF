@@ -411,5 +411,5 @@ class MvFileGUI(object):
 
 # test func
 if __name__ == '__main__':
-    rn_gui = MvFileGUI('RenameGUI', 595, 535)
+    rn_gui = MvFileGUI('RenameGUI', 595, 525)
     rn_gui.launch_gui()
