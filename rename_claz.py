@@ -199,7 +199,7 @@ class MvFileGUI(object):
         self.dirButton.grid(row=0, column=2, padx=10, pady=10)
 
         # version information
-        self.verionLabel = Label(self.root, text="    Version 0.1\n    2018.05.17")
+        self.verionLabel = Label(self.root, text="    Version 0.1\n\n    2018.05.17")
         self.verionLabel.grid(row=1, column=0, pady=0)
 
         # function group
@@ -215,7 +215,7 @@ class MvFileGUI(object):
 
         # exit button
         self.quitButton = Button(
-            self.root, text='EXIT', command=self.root.quit, width=10, height=1)
+            self.root, text='退出', command=self.root.quit, width=10, height=1)
         self.quitButton.grid(row=4, column=1)
 
     # Bring up the main GUI
@@ -226,8 +226,8 @@ class MvFileGUI(object):
     # Processing function for work button
     def button_act(self):
         if self.dirpath == '':
-            self.errorDiag("Invalid Directory",
-                           "Please select a valid directory first!")
+            self.errorDiag("无效目录",
+                           "请首先选择一个包含待处理文件的目录！")
             return
 
         r_dirpath = self.dirpath.replace('/', '\\\\')
@@ -262,7 +262,7 @@ class MvFileGUI(object):
     # get the directory path and fill it in dir entry
     def select_dirpath(self):
         self.dirpath = tkFileDialog.askdirectory(
-            parent=self.root, initialdir="F:/", title="Select a Directory")
+            parent=self.root, initialdir="F:/", title="选择目录：")
 
         # replace char / for display in dir entry
         dirStr = self.dirpath.replace('/', '\\')
